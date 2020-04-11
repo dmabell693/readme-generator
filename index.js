@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
+const generateMarkdown = require("./generateMarkdown.js")
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -28,16 +29,7 @@ function promptUser() {
     ]);
 }
 
-function generateMarkdown(data) {
-    return `
-  # ${data.title}
 
-  ## ${data.description}
-
-  ## ${data.toc}
-  
-  `;
-  }
 
 // function writeToFile(fileName, data) {
 // }
