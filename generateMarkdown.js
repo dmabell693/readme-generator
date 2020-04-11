@@ -6,6 +6,7 @@ function generateMarkdown(data) {
 
 ## ${data.toc}
 
+### ${data.avatar_url}
 `;
 }
 
