@@ -29,6 +29,8 @@ function promptUser() {
     return inquirer.prompt(questions);
 }
 
+let gitHubInfo;
+
 async function getGitHubInfo() {
     try {
       const { username } = await inquirer.prompt({
@@ -39,29 +41,32 @@ async function getGitHubInfo() {
       const { data } = await axios.get(
         `https://api.github.com/users/${username}`
       );
-      await console.log(data);
+    //   await console.log(data);
     //   const gitHubInfo = await JSON.stringify(data);
 
-      await writeFileAsync(`${username}GitHubInfo.json`, JSON.stringify(data, null, 2));
-      console.log(data.avatar_url);
+      await writeFileAsync(`gitHubInfo.json`, JSON.stringify(data, null, 2));
+    //   console.log(data.avatar_url);
+      gitHubInfo = data.avatar_url;
       
     //   await console.log(JSON.parse(gitHubInfo));
     
     } catch (err) {
       console.log(err);
     }
-  }
+}
 
 // function writeToFile(fileName, data) {
 // }
 
 async function init() {
     try {
-        const data = await getGitHubInfo();
+        await getGitHubInfo();
 
-        const peach = await promptUser();
+        const data = await promptUser();
+
+        await console.log(gitHubInfo);
         
-        const markdown = generateMarkdown(peach, data);
+        const markdown = generateMarkdown(data, gitHubInfo);
 
         await writeFileAsync("README2.md", markdown);
 
