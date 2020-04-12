@@ -90,9 +90,9 @@ async function init() {
         // data contains the object of responses from promptUser(), gitHubInfo from universal scope
         const markdown = generateMarkdown(data, gitHubInfo);
 
-        await writeFileAsync("README.md", markdown);
+        await writeFileAsync("README2.md", markdown);
 
-        console.log("Successfully wrote to README.md");
+        console.log("Successfully wrote to README2.md");
 
     } catch(err) {
 
