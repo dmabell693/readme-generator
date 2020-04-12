@@ -16,12 +16,37 @@ const questions = [
     {
         type: "input",
         name: "description",
-        message: "What exactly can your project do?"
+        message: "What specifically can your project do?"
     },
     {
         type: "input",
-        name: "toc",
-        message: "What will be your README headings?"
+        name: "installation",
+        message: "How will the user install your application?"
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "Provide some specific examples of code to demonstrate how the user should operate your application."
+    },
+    {
+        type: "input",
+        name: "license",
+        message: "Under whose license will your application be issued?"
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: "What, if you will allow contributing, are the procedures for contributing to your application?"
+    },
+    {
+        type: "input",
+        name: "tests",
+        message: "What tests have been implemented in your application?"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email listed on your Github profile?"
     }
 ];
 

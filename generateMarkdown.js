@@ -1,28 +1,50 @@
-// const fs = require("fs");
-
-
-// const readFunction = function(error, data) {
-//   if (error) {
-//     return console.log(error);
-//   }
-
-//   return data;
-
-// }
-
-// const gitHubInfo = fs.readFile("gitHubInfo.json", "utf8", readFunction);
-
-// console.log(gitHubInfo);
-
 function generateMarkdown(data, gitHubInfo) {
   return `
 # ${data.title}
 
-## ${data.description}
+${data.description}
 
-## ${data.toc}
 
-### <img src= "${gitHubInfo}"/>
+## Table of Contents
+
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
+
+
+## Installation
+
+${data.installation}
+
+
+## Usage
+
+${data.usage}
+
+
+## License
+
+${data.license}
+
+
+## Contributing
+
+${data.contributing}
+
+
+## Tests
+
+${data.tests}
+
+
+## Questions
+  Questions? Please contact me here:
+  ${data.email}
+  And here is my face:
+  ## <img src= "${gitHubInfo}"/>
 `;
 }
 
