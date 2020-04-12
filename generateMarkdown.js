@@ -5,6 +5,7 @@ function generateMarkdown(data, gitHubInfo) {
 ${data.description}
 
 
+
 ## Table of Contents
 
 * [Installation](#Installation)
@@ -27,7 +28,8 @@ ${data.usage}
 
 ## License
 
-${data.license}
+${data.license} ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
+
 
 
 ## Contributing

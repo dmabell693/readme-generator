@@ -1,7 +1,8 @@
 
-# Trales & Ales
+# 
 
-find trails close to ales
+
+
 
 
 ## Table of Contents
@@ -16,31 +17,32 @@ find trails close to ales
 
 ## Installation
 
-npm i tralesandales
+
 
 
 ## Usage
 
-code example
+
 
 
 ## License
 
-my own
+no license ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
+
 
 
 ## Contributing
 
-pull requests welcome
+
 
 
 ## Tests
 
-tests
+
 
 
 ## Questions
   Questions? Please contact me here:
-  dmabell693@gmail.com
+  
   And here is my face:
   ## <img src= "https://avatars1.githubusercontent.com/u/59124691?v=4"/>
