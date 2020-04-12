@@ -28,7 +28,7 @@ ${data.usage}
 
 ## License
 
-${data.license} ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
+${data.license}  ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
 
 
 

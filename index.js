@@ -1,12 +1,14 @@
+// declare each requirement in variables
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const generateMarkdown = require("./generateMarkdown.js")
 const axios = require("axios");
 
-
+// asynch file write to be utilized after axios call has returned and inquirer prompts answered
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// array of questions to be passed into promptUser() (line 55)
 const questions = [
     {
         type: "input",
@@ -50,12 +52,13 @@ const questions = [
     }
 ];
 
-function promptUser() {
-    return inquirer.prompt(questions);
-}
+// function will be called in init() at line 84. Fires off the inquirer prompts
+const promptUser = () => inquirer.prompt(questions);
 
+// it was incredibly difficult to pass the data from axios call over to generateMarkdown(), so this is the workaround. Declaring the variable in universal scope allows for it to be redefined and called in the axios call and generateMarkdown()
 let gitHubInfo;
 
+// since the axios call and inquirer prompts are housed in two different functions, an async function here worked around problems with having the below prompt and the first prompt from promptUser() fire off simultaneously
 async function getGitHubInfo() {
     try {
       const { username } = await inquirer.prompt({
@@ -66,38 +69,35 @@ async function getGitHubInfo() {
       const { data } = await axios.get(
         `https://api.github.com/users/${username}`
       );
-    //   await console.log(data);
-    //   const gitHubInfo = await JSON.stringify(data);
 
-      await writeFileAsync(`gitHubInfo.json`, JSON.stringify(data, null, 2));
-    //   console.log(data.avatar_url);
+      // redefined variable declared in universal scope. This is the url that will be used as the img src in generateMarkdown for the profile pic
       gitHubInfo = data.avatar_url;
       
-    //   await console.log(JSON.parse(gitHubInfo));
-    
     } catch (err) {
+
       console.log(err);
+
     }
 }
 
-// function writeToFile(fileName, data) {
-// }
-
+// here again, the async function was helpful in controlling the order in which functions fired off
 async function init() {
     try {
         await getGitHubInfo();
 
         const data = await promptUser();
-
-        await console.log(gitHubInfo);
         
+        // data contains the object of responses from promptUser(), gitHubInfo from universal scope
         const markdown = generateMarkdown(data, gitHubInfo);
 
-        await writeFileAsync("README2.md", markdown);
+        await writeFileAsync("README.md", markdown);
 
-        console.log("Successfully wrote to README2.md");
+        console.log("Successfully wrote to README.md");
+
     } catch(err) {
+
         console.log(err);
+
     }
 }
 
