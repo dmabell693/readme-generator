@@ -1,7 +1,7 @@
 
-# readme-generator
+# employee-tracker
 
-test description
+This CLI app allows the user to build a neatly organized database capable of storing employee, role, and department data.
 
 
 
@@ -17,32 +17,32 @@ test description
 
 ## Installation
 
-test installation
+Clone or download from GitHub.
 
 
 ## Usage
 
-test usage
+Open the command line; the program starts on either of these commands: 1) "npm start", 2) "node app.js".
 
 
 ## License
 
-test license  ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
+No license  ![GitHub](https://img.shields.io/github/license/dmabell693/readme-generator)
 
 
 
 ## Contributing
 
-test contributing
+Pull requests welcome
 
 
 ## Tests
 
-test tests
+Internal testing and debugging
 
 
 ## Questions
   Questions? Please contact me here:
-  test@gmail.com
+  dmabell693@gmail.com
   And here is my face:
   ## <img src= "https://avatars1.githubusercontent.com/u/59124691?v=4"/>
